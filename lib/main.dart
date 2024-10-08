@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_import, unused_local_variable
 
-import 'package:flappy_bird/Routes/app_routes.dart';
+import 'Routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';

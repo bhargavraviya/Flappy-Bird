@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flappy_bird/Database/database.dart';
-import 'package:flappy_bird/Resources/strings.dart';
 import 'package:flutter/material.dart';
-
+import '../../Database/database.dart';
+import '../../Resources/strings.dart';
 import '../../Global/functions.dart';
 
 class BirdSettings extends StatelessWidget {
-  const BirdSettings({Key? key}) : super(key: key);
+  const BirdSettings({super.key});
 
   @override
   Widget build(BuildContext context) {

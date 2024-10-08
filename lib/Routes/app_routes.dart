@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:flappy_bird/Layouts/Pages/page_game.dart';
-import 'package:flappy_bird/Layouts/Pages/page_settings.dart';
+import '../../Layouts/Pages/page_game.dart';
+import '../../Layouts/Pages/page_settings.dart';
 import 'package:flutter/material.dart';
 import '../Layouts/Pages/page_rate_us.dart';
 import '../Layouts/Pages/page_start_screen.dart';
 import '../Resources/strings.dart';
 
-class AppRoute{
-  Route? generateRoute(RouteSettings settings){
-    switch(settings.name){
+class AppRoute {
+  Route? generateRoute(RouteSettings settings) {
+    switch (settings.name) {
       case Str.home:
         return MaterialPageRoute(builder: (_) => StartScreen());
       case Str.gamePage:
@@ -20,19 +20,22 @@ class AppRoute{
       default:
         _errorRoute();
     }
+    return null;
   }
 
-  static Route<dynamic> _errorRoute (){
-    return MaterialPageRoute(builder: (context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Error Page"),
-          backgroundColor: Colors.redAccent,
-        ),
-        body: Center(
-          child: Text("Error"),
-        ),
-      );
-    },);
+  static Route<dynamic> _errorRoute() {
+    return MaterialPageRoute(
+      builder: (context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text("Error Page"),
+            backgroundColor: Colors.redAccent,
+          ),
+          body: Center(
+            child: Text("Error"),
+          ),
+        );
+      },
+    );
   }
 }

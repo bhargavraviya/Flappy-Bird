@@ -1,23 +1,23 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, avoid_unnecessary_containers, avoid_print
 import 'dart:async';
-import 'package:flappy_bird/Layouts/Pages/page_start_screen.dart';
-import 'package:flappy_bird/Layouts/Widgets/widget_bird.dart';
-import 'package:flappy_bird/Layouts/Widgets/widget_barrier.dart';
-import 'package:flappy_bird/Layouts/Widgets/widget_cover.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'page_start_screen.dart';
+import '../../Layouts/Widgets/widget_bird.dart';
+import '../../Layouts/Widgets/widget_barrier.dart';
+import '../../Layouts/Widgets/widget_cover.dart';
 import '../../Database/database.dart';
 import '../../Global/constant.dart';
 import '../../Global/functions.dart';
 import '../../Resources/strings.dart';
 
 class GamePage extends StatefulWidget {
-  GamePage({Key? key}) : super(key: key);
+  GamePage({super.key});
   @override
   State<GamePage> createState() => _GamePageState();
 }
-class _GamePageState extends State<GamePage> {
 
+class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,21 +34,38 @@ class _GamePageState extends State<GamePage> {
                   // Tap to play text
                   Container(
                     alignment: Alignment(0, -0.3),
-                    child: myText(gameHasStarted ? '' : 'TAP TO START',Colors.white,25),
+                    child: myText(
+                        gameHasStarted ? '' : 'TAP TO START', Colors.white, 25),
                   ),
                   Barrier(barrierHeight[0][0], barrierWidth, barrierX[0], true),
-                  Barrier(barrierHeight[0][1], barrierWidth, barrierX[0], false),
+                  Barrier(
+                      barrierHeight[0][1], barrierWidth, barrierX[0], false),
                   Barrier(barrierHeight[1][0], barrierWidth, barrierX[1], true),
-                  Barrier(barrierHeight[1][1], barrierWidth, barrierX[1], false),
+                  Barrier(
+                      barrierHeight[1][1], barrierWidth, barrierX[1], false),
                   Positioned(
-                    bottom: 1, right: 1, left: 1,
-                    child: Container(child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text("Score : $score",style: TextStyle(color: Colors.white,fontSize: 30,fontFamily: "Magic4"),), // Best TEXT
-                        Text("Best : $topScore",style: TextStyle(color: Colors.white,fontSize: 30,fontFamily: "Magic4")),
-                      ],
-                    ),),
+                    bottom: 1,
+                    right: 1,
+                    left: 1,
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            "Score : $score",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontFamily: "Magic4"),
+                          ), // Best TEXT
+                          Text("Best : $topScore",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 30,
+                                  fontFamily: "Magic4")),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -73,7 +90,6 @@ class _GamePageState extends State<GamePage> {
 
   //Start Game Function:
   void startGame() {
-
     gameHasStarted = true;
     Timer.periodic(Duration(milliseconds: 35), (timer) {
       height = gravity * time * time + velocity * time;
@@ -125,13 +141,13 @@ class _GamePageState extends State<GamePage> {
     if (yAxis > 1.26 || yAxis < -1.1) {
       return true;
     }
+
     /// Barrier hitBox
     for (int i = 0; i < barrierX.length; i++) {
       if (barrierX[i] <= birdWidth &&
           (barrierX[i] + (barrierWidth)) >= birdWidth &&
           (yAxis <= -1 + barrierHeight[i][0] ||
               yAxis + birdHeight >= 1 - barrierHeight[i][1])) {
-
         return true;
       }
     }
@@ -159,17 +175,21 @@ class _GamePageState extends State<GamePage> {
       builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
           title: myText("..Oops", Colors.blue[900], 35),
           actionsPadding: EdgeInsets.only(right: 8, bottom: 8),
           content: Container(
-            child: Lottie.asset("assets/pics/loss.json",
-                fit: BoxFit.cover),
+            child: Lottie.asset("assets/pics/loss.json", fit: BoxFit.cover),
           ),
           actions: [
             gameButton(() {
               resetGame();
-              Navigator.push(context, MaterialPageRoute(builder: (context) => StartScreen(),));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StartScreen(),
+                  ));
             }, "Exit", Colors.grey),
             gameButton(() {
               resetGame();

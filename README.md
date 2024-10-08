@@ -35,17 +35,23 @@ $ flutter pub get
 <a href="https://github.com/moha-b"><img align="left" src="https://user-images.githubusercontent.com/73842931/203227568-87586057-ca54-404c-bf8c-907a00127279.png"  height="75"></a>
 <a href="https://github.com/linah31"><img align="left" src="https://user-images.githubusercontent.com/73842931/203234276-e00a46a2-db2b-4143-8977-5dc63a21f722.png"  height="75"></a>
 <a href="https://github.com/SalmaBasem20191743"><img align="left" src="https://user-images.githubusercontent.com/73842931/203234281-4ceef1cc-3aba-486a-b6e2-e5f0225f6a73.png"  height="75"></a>
+<a href="https://github.com/bhargavraviya"><img align="left" src="https://avatars.githubusercontent.com/u/46953122"  height="75" style="border-radius: 50%;"></a>
 
 <br>
 <br>
 <br>
 
-
+## Android Version Details (local.properties)
+```
+flutter.minSdkVersion=23
+flutter.targetSdkVersion=34
+flutter.compileSdkVersion=35
+```
 ## Techniques used 🛠️
 
 <img width="300" align="right" src="screenshots/logo.png" alt="preview" />
 
-- Minimum SDK level 21
+- Minimum SDK level 23
 - Architecture
     - MVC
 - [Hive](https://pub.dev/packages/hive) - GetX is an extra-light and powerful solution for Flutter.
